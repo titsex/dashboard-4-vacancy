@@ -1,9 +1,9 @@
 export class HttpError {
     statusCode
-    message
     error
+    message
 
-    constructor(statusCode, error = 'No error details', message) {
+    constructor(statusCode, message, error) {
         this.statusCode = statusCode
         this.error = error
         this.message = message
@@ -11,7 +11,7 @@ export class HttpError {
 }
 
 export class BadRequest extends HttpError {
-    constructor(message, error) {
-        super(400, message, error)
+    constructor(message) {
+        super(400, message, 'Bad Request')
     }
 }

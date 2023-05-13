@@ -6,12 +6,12 @@ CREATE TABLE owners (
 );
 
 CREATE TABLE pets (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     type VARCHAR(255),
     breed VARCHAR(255),
-    ownerId INTEGER,
-    FOREIGN KEY (ownerId) REFERENCES owners(id)
+    ownerid INTEGER,
+    FOREIGN KEY (ownerid) REFERENCES owners (id) ON DELETE CASCADE
 );
 
 INSERT INTO owners (name) VALUES ('Ruslan'), ('Andrey'), ('Nikita');

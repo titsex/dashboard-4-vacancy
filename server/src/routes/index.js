@@ -1,11 +1,9 @@
-import ownerRouter from '@route/owner.route.js'
-import petRouter from '@route/pet.route.js'
+import { ownerRoutes } from '@route/owner.route.js'
+import { petRoutes } from '@route/pet.route.js'
 
-import { Router } from '@class/Router.js'
+export function router(fastify, options, done) {
+    fastify.register(ownerRoutes, { prefix: '/owner' })
+    fastify.register(petRoutes, { prefix: '/pet' })
 
-const router = new Router()
-
-router.use('/owner', ownerRouter)
-router.use('/pet', petRouter)
-
-export default router
+    done()
+}

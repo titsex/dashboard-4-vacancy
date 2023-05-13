@@ -13,7 +13,10 @@
     "@class": "src/classes",
     "@route": "src/routes",
     "@model": "src/models",
+    "@controller": "./src/controllers",
     "@middleware": "./src/middlewares",
+    "@validation": "./src/validations",
+    "@service": "./src/services",
     "@router": "src/routes/index.js",
     "@entry": "src/index.js",
     "@utils": "src/utils.js",
@@ -31,8 +34,10 @@
   "dependencies": {
     "compose-function": "^3.0.3",
     "dotenv": "^16.0.3",
+    "fastify": "^4.17.0",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.31.1"
+    "sequelize": "^6.31.1",
+    "validator": "^13.9.0"
   }
 }

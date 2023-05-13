@@ -1,13 +1,13 @@
 import { DataTypes, Model } from 'sequelize'
 
-export class PetEntity extends Model {
-    name
-    type
-    breed
-    ownerId
-}
+export class PetEntity extends Model {}
 
 export const PetEntityAttributes = {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     name: {
         type: DataTypes.STRING,
     },
@@ -16,5 +16,8 @@ export const PetEntityAttributes = {
     },
     breed: {
         type: DataTypes.STRING,
+    },
+    ownerid: {
+        type: DataTypes.INTEGER,
     },
 }

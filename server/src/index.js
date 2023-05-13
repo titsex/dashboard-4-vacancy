@@ -1,29 +1,28 @@
 import { config } from 'dotenv'
 config()
 
-import errorMiddleware from '@middleware/error.middleware.js'
-import handleRouter from '@router'
+import errorHandler from '@middleware/errorHandler.middleware.js'
+import Fastify from 'fastify'
 
-import { Application } from '@class/Application.js'
 import { Database } from '@class/Database.js'
 import { Logger } from '@class/Logger.js'
+import { router } from '@router'
 
 const PORT = process.env.PORT || 5000
 
 const main = async () => {
-    try {
-        const app = new Application()
+    new Database(process.env.PG_URL)
+    Database.initTables()
 
-        new Database(process.env.PG_URL)
-        Database.initTables()
+    const fastify = Fastify()
 
-        app.use(handleRouter.handleRequest)
-        app.setErrorHandler(errorMiddleware)
+    fastify.register(router, { prefix: '/api' })
+    fastify.setErrorHandler(errorHandler)
 
-        app.listen(PORT, () => Logger.info(`Server has been started on ${PORT} port`))
-    } catch (error) {
-        Logger.error(error)
-    }
+    fastify.listen(PORT, (error, address) => {
+        if (error) Logger.error(error.message)
+        else Logger.info(`Server has been started and now listening on ${address}`)
+    })
 }
 
 main()

@@ -21,6 +21,6 @@ export class Database {
     static initTables() {
         OwnerEntity.init(OwnerEntityAttributes, { sequelize, modelName: 'owners', timestamps: false })
         PetEntity.init(PetEntityAttributes, { sequelize, modelName: 'pets', timestamps: false })
-        PetEntity.belongsTo(OwnerEntity, { foreignKey: 'ownerId' })
+        PetEntity.belongsTo(OwnerEntity, { foreignKey: 'ownerid' })
     }
 }
