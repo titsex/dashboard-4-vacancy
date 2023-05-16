@@ -14,10 +14,13 @@ export const PetEntityAttributes = {
     type: {
         type: DataTypes.STRING,
     },
-    breed: {
-        type: DataTypes.STRING,
+    created_at: {
+        type: DataTypes.NOW,
     },
-    ownerid: {
+    updated_at: {
+        type: DataTypes.NOW,
+    },
+    user_id: {
         type: DataTypes.INTEGER,
     },
 }

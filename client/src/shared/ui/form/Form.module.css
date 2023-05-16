@@ -1,0 +1,4 @@
+.form {
+    @apply shadow-xl rounded-xl bg-light-theme p-5 flex flex-col w-1/3
+}
+

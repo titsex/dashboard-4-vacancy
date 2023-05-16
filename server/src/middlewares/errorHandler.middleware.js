@@ -18,6 +18,8 @@ export default function (error, request, reply) {
         })
     }
 
+    console.log(error)
+
     return reply.code(500).send({
         error: 'Internal Server Error',
         message: error.message,

@@ -1,7 +1,8 @@
 import { Logger } from '@class/Logger.js'
 import { Sequelize } from 'sequelize'
 
-import { OwnerEntity, OwnerEntityAttributes } from '@model/owner.entity.js'
+import { TokenEntity, TokenEntityAttributes } from '@model/token.entity.js'
+import { UserEntity, UserEntityAttributes } from '@model/user.entity.js'
 import { PetEntity, PetEntityAttributes } from '@model/pet.entity.js'
 
 export let sequelize
@@ -19,8 +20,12 @@ export class Database {
     }
 
     static initTables() {
-        OwnerEntity.init(OwnerEntityAttributes, { sequelize, modelName: 'owners', timestamps: false })
+        UserEntity.init(UserEntityAttributes, { sequelize, modelName: 'users', timestamps: false })
+
+        TokenEntity.init(TokenEntityAttributes, { sequelize, modelName: 'tokens', timestamps: false })
+        TokenEntity.belongsTo(UserEntity, { foreignKey: 'user_id' })
+
         PetEntity.init(PetEntityAttributes, { sequelize, modelName: 'pets', timestamps: false })
-        PetEntity.belongsTo(OwnerEntity, { foreignKey: 'ownerid' })
+        PetEntity.belongsTo(UserEntity, { foreignKey: 'user_id' })
     }
 }

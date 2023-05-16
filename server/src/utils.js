@@ -1,17 +1,15 @@
+import { randomBytes } from 'crypto'
+
 export const getDate = () => {
     const date = new Date()
 
     return [date, date.toLocaleString('ru-RU')]
 }
 
-export const generateSQL = ({ id, ...data }) => {
-    let request = ''
+export const getIp = (request) => request.ip || request.raw.connection.remoteAddress
 
-    for (const key in data) {
-        request += `${key} = '${data[key]}', `
-    }
+export const randomString = (length) => randomBytes(length).toString('hex')
 
-    request = request.slice(0, -2)
+export const randomNumber = (minimum, maximum) => Math.floor(Math.random() * (maximum - minimum + 1) + minimum)
 
-    return request
-}
+export const generateUniqueHex = () => randomString(randomNumber(10, 20))

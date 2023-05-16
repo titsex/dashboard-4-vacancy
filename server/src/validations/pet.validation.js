@@ -3,12 +3,11 @@ export class PetValidation {
         schema: {
             body: {
                 type: 'object',
-                required: ['ownerid', 'name', 'type', 'breed'],
+                required: ['userId', 'name', 'type'],
                 properties: {
-                    ownerid: { type: 'integer' },
+                    userId: { type: 'integer' },
                     name: { type: 'string', maxLength: 255, minLength: 1 },
                     type: { type: 'string', maxLength: 255, minLength: 1 },
-                    breed: { type: 'string', maxLength: 255, minLength: 1 },
                 },
             },
         },
@@ -42,12 +41,11 @@ export class PetValidation {
         schema: {
             body: {
                 type: 'object',
-                required: ['id', 'name', 'type', 'breed'],
+                required: ['id'],
                 properties: {
                     id: { type: 'integer' },
                     name: { type: 'string', maxLength: 255, minLength: 1 },
                     type: { type: 'string', maxLength: 255, minLength: 1 },
-                    breed: { type: 'string', maxLength: 255, minLength: 1 },
                 },
             },
         },

@@ -2,9 +2,9 @@ import { PetService } from '@service/pet.service.js'
 
 export class PetController {
     static async create(request) {
-        const { ownerid, name, type, breed } = request.body
+        const { userId: user_id, name, type } = request.body
 
-        return await PetService.create({ ownerid, name, type, breed })
+        return await PetService.create({ user_id, name, type })
     }
 
     static async getOne(request) {
@@ -18,9 +18,9 @@ export class PetController {
     }
 
     static async update(request) {
-        const { id, name, type, breed } = request.body
+        const { id, name, type } = request.body
 
-        return await PetService.update({ id, name, type, breed })
+        return await PetService.update({ id, name, type })
     }
 
     static async delete(request) {

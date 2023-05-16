@@ -1,0 +1,10 @@
+{
+  "name": "test-assignment",
+  "version": "1.0.0",
+  "description": "Test assignment for a fullstack web developer vacancy",
+  "author": "titsex",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+}

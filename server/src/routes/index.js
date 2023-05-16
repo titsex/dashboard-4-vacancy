@@ -1,9 +1,9 @@
-import { ownerRoutes } from '@route/owner.route.js'
-import { petRoutes } from '@route/pet.route.js'
+import { userRoutes } from '@route/user.route.js'
+import { petRouter } from '@route/pet.route.js'
 
 export function router(fastify, options, done) {
-    fastify.register(ownerRoutes, { prefix: '/owner' })
-    fastify.register(petRoutes, { prefix: '/pet' })
+    fastify.register(userRoutes, { prefix: '/user' })
+    fastify.register(petRouter, { prefix: '/pet' })
 
     done()
 }

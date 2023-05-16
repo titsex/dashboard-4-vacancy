@@ -1,0 +1,7 @@
+.error {
+    @apply ml-1 mt-1 dark:text-red-400 text-red-600
+}
+
+.input {
+    @apply pl-3 py-2 outline-none rounded-lg
+}

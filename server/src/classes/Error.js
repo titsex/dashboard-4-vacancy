@@ -15,3 +15,9 @@ export class BadRequest extends HttpError {
         super(400, message, 'Bad Request')
     }
 }
+
+export class Unauthorized extends HttpError {
+    constructor() {
+        super(401, 'You have to log in', 'Unauthorized')
+    }
+}
